@@ -31,6 +31,7 @@ $(function() {
 	//drawTable({'song_id': 3, 'song_name': 'Josh-Woodward--I-Want-To-Destroy-Something-Beautiful', 'file_sha1': 'C6364099D8E0DC297956EC9D8B2AC1B83403D407', 'confidence': 6, 'offset_seconds': 58.32853, 'match_time': 5.005235910415649, 'offset': 1256})
 	$('#submit').click(function(e){
 		e.preventDefault();
+		drawTable({})
 		$("#submit").html('Prosessing <i class="fa fa-spinner fa-spin fa-fw"></i>');
 		$.getJSON('http://localhost:5000/recognize_url?url=' + $('#url').val(), function(data){
 			drawTable(data)
