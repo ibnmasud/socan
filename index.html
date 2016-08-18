@@ -27,6 +27,8 @@ function drawRow(name, data) {
     row.append($("<td>" + data + "</td>"));
 }
 $(function() {
+	  $.backstretch("img/bg.jpg");
+
     // Code for on docload here
 	//drawTable({'song_id': 3, 'song_name': 'Josh-Woodward--I-Want-To-Destroy-Something-Beautiful', 'file_sha1': 'C6364099D8E0DC297956EC9D8B2AC1B83403D407', 'confidence': 6, 'offset_seconds': 58.32853, 'match_time': 5.005235910415649, 'offset': 1256})
 	$('#submit').click(function(e){
@@ -40,14 +42,13 @@ $(function() {
 	})
 });
 </script>
-
-<title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script><title>
 	SOCAN Music Identifier
 </title>
 </head>
 
 <body>
-<div class="center-block pagination-centered text-center" style="width:60%">
+<div class="center-block pagination-centered text-center" style=" height:100%; min-height: 100%; padding:25px;width:60%;background:rgba(255, 255, 255, 0.95); border-bottom-left-radius:20px; border-bottom-right-radius:20px">
 <br />
 <p>
 	<img src="img/logo.png" width="175" height="64" />
@@ -55,10 +56,14 @@ $(function() {
 <form id="form1" name="form1" method="post" action="">
   <div class="form-group">
     <label for="exampleInputEmail1">Youtube Link</label>
-    <input type="text" class="form-control" name="url" id="url" placeholder="Enter Yourube URL">
+    <div class="input-group">
+      <input name="url" type="text" class="form-control" id="url" placeholder="Enter Yourube URL">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" id="submit" type="sybnut">Process</button>
+      </span>
+    </div>
     <small id="emailHelp" class="form-text text-muted">Provide the youtube url at top.</small>
   </div>
-  <button type="submit" id="submit" class="btn btn-primary">Process</button>
 </form><br />
 <div id="responseTable"></div>
 </div>
