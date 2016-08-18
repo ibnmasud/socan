@@ -22,7 +22,7 @@ function drawTable(data) {
 
 function drawRow(name, data) {
     var row = $("<tr />")
-    $("#responseTable").append(row); 
+    $("#responseTable").append(row);
     row.append($("<td>" + name + "</td>"));
     row.append($("<td>" + data + "</td>"));
 }
@@ -31,7 +31,7 @@ $(function() {
 	$('#submit').click(function(e){
 		e.preventDefault();
 		$("#submit").html('Prosessing <i class="fa fa-spinner fa-spin fa-fw"></i>');
-		$.getJSON('',function(data){
+		$.getJSON('http://localhost:5000/recognize_url?url=' + $('#url').val(), function(data){
 			drawTable(data)
 			$("#submit").html('Prosess');
 		})
@@ -39,18 +39,21 @@ $(function() {
 });
 </script>
 
-<title>Untitled Document</title>
+<title>
+	SOCAN Music Identifier
+</title>
 </head>
 
 <body>
 <div class="center-block pagination-centered text-center" style="width:60%">
-<p>&nbsp;</p>
-<p><img src="img/logo.png" width="175" height="64" />
+<br />
+<p>
+	<img src="img/logo.png" width="175" height="64" />
 </p>
 <form id="form1" name="form1" method="post" action="">
   <div class="form-group">
     <label for="exampleInputEmail1">Youtube Link</label>
-    <input type="text" class="form-control" id="url" placeholder="Enter Yourube URL">
+    <input type="text" class="form-control" name="url" id="url" placeholder="Enter Yourube URL">
     <small id="emailHelp" class="form-text text-muted">Provide the youtube url at top.</small>
   </div>
   <button type="submit" id="submit" class="btn btn-primary">Process</button>
