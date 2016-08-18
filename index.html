@@ -7,14 +7,14 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="application/javascript">
 function drawTable(data) {
-	$("#responseTable").html('<table></table>')
+	$("#responseTable").html('<table class="table table-hover table-striped table-bordered"><tbody></tbody></table>')
     for (var a in data) {
         drawRow(a, data[a]);
     }
@@ -22,12 +22,13 @@ function drawTable(data) {
 
 function drawRow(name, data) {
     var row = $("<tr />")
-    $("#responseTable").append(row);
+    $("#responseTable tbody").append(row);
     row.append($("<td>" + name + "</td>"));
     row.append($("<td>" + data + "</td>"));
 }
 $(function() {
     // Code for on docload here
+	//drawTable({'song_id': 3, 'song_name': 'Josh-Woodward--I-Want-To-Destroy-Something-Beautiful', 'file_sha1': 'C6364099D8E0DC297956EC9D8B2AC1B83403D407', 'confidence': 6, 'offset_seconds': 58.32853, 'match_time': 5.005235910415649, 'offset': 1256})
 	$('#submit').click(function(e){
 		e.preventDefault();
 		$("#submit").html('Prosessing <i class="fa fa-spinner fa-spin fa-fw"></i>');
@@ -57,7 +58,7 @@ $(function() {
     <small id="emailHelp" class="form-text text-muted">Provide the youtube url at top.</small>
   </div>
   <button type="submit" id="submit" class="btn btn-primary">Process</button>
-</form>
+</form><br />
 <div id="responseTable"></div>
 </div>
 </body>
